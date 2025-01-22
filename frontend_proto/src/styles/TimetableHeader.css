@@ -1,0 +1,16 @@
+.timetable-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .nav-button {
+    padding: 0 0.5rem;
+  }
+  
+  .term-title {
+    margin: 0 1rem;
+    font-size: 1.125rem;
+  }

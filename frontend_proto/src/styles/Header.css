@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    margin-left: 1rem;
+  }
+  
+  .logo {
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  
+  .semester-info {
+    color: #4b5563;
+    font-size: 0.875rem;
+    margin-right: 1rem;
+  }

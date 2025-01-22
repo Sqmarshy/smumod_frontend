@@ -1,31 +1,32 @@
-import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import '../styles/Sidebar.css';
 
+const menuItems = [
+  { icon: "img", label: "Timetable", path: "/timetable" },
+  { icon: "img", label: "Courses", path: "/courses" },
+  { icon: "img", label: "Venue", path: "/venue" },
+  { icon: "img", label: "Setting", path: "/setting" },
+];
 function Sidebar() {
-    const [activeItem, setActiveItem] = useState('');
-    
-    const menuItems = [
-      { icon: "img", label: "Timetable" },
-      { icon: "img", label: "Courses" },
-      { icon: "img", label: "Venues" },
-      { icon: "img", label: "Settings" },
-    ];
-  
-    return (
-      <aside className="w-64 bg-white border-r">
-        <nav className="flex flex-col">
-          {menuItems.map(item => (
-            <a 
-              key={item.label} 
-              className={`sidebar-item ${activeItem === item.label ? 'active' : ''}`}
-              onClick={() => setActiveItem(item.label)}
-            >
-              <span className="sidebar-icon">{item.icon}</span>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </aside>
-    );
-};
+  const location = useLocation();
+  const currentPath = location.pathname.substring(1) || 'timetable';
 
-export default Sidebar;
+  return (
+    <aside className="sidebar">
+      <nav>
+        {menuItems.map(item => (
+          <Link 
+            key={item.label} 
+            to={item.path} 
+            className={`sidebar-item ${currentPath === item.label.toLowerCase() ? 'active' : ''}`}
+          >
+            <span className="sidebar-icon">{item.icon}</span>
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+    </aside>
+  );
+}
+
+export default Sidebar

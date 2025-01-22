@@ -1,0 +1,33 @@
+.timetable-container {
+  padding: 1rem;
+ }
+ 
+ .timetable-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100px repeat(8, minmax(100px, 1fr));
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+ 
+ .empty-cell, .time-slot, .day-label, .grid-cell {
+  padding: 0.75rem;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+ }
+ 
+ .empty-cell, .time-slot {
+  background: #f9fafb;
+  text-align: center;
+ }
+ 
+ .day-label {
+  background: #f9fafb;
+  font-weight: 500;
+  border-left: 1px solid #e5e7eb;
+ }
+ 
+ .grid-cell {
+  min-height: 100px;
+ }

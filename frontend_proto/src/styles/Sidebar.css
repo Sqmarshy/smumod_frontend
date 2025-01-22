@@ -1,0 +1,33 @@
+.sidebar {
+  display: flex;
+  width: 12rem;
+  background-color: white;
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  margin-left: 1rem;
+}
+  
+  .sidebar nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .sidebar-item:hover {
+    background-color: rgb(243 244 246);
+  }
+  
+  .sidebar-item.active {
+    color: rgb(239 68 68);
+    background-color: rgb(254 242 242);
+  }
+  
+  .sidebar-icon {
+    margin-right: 0.75rem;
+  }
