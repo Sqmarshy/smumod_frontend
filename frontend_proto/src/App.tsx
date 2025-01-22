@@ -20,6 +20,7 @@ function App() {
               <Route path="/venue" element={<Venue />} />
               <Route path="/setting" element={<Setting />} />
               <Route path="/" element={<Navigate to="/timetable" />} />
+              <Route path="/deploy-proto" element={<Navigate to="/timetable" />} />
             </Routes>
           </main>
         </div>
