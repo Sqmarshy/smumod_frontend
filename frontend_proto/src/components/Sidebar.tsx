@@ -2,10 +2,10 @@ import { Link, useLocation } from 'react-router-dom';
 import '../styles/Sidebar.css';
 
 const menuItems = [
-  { icon: "img", label: "Timetable", path: "/timetable" },
-  { icon: "img", label: "Courses", path: "/courses" },
-  { icon: "img", label: "Venue", path: "/venue" },
-  { icon: "img", label: "Setting", path: "/setting" },
+  { icon: "📅 ", label: "Timetable", path: "/timetable" },
+  { icon: "📚 ", label: "Courses", path: "/courses" },
+  { icon: "🧭 ", label: "Venue", path: "/venue" },
+  { icon: "⚙️ ", label: "Setting", path: "/setting" },
 ];
 function Sidebar() {
   const location = useLocation();

@@ -1,5 +1,6 @@
 import TimetableGrid from '../components/TimetableGrid';
 import TimetableHeader from '../components/TimetableHeader';
+import CourseList from '../components/CourseList';
 import '../styles/Timetable.css';
 
 function Timetable(){
@@ -8,6 +9,7 @@ function Timetable(){
       <main className="timetable-main">
         <TimetableHeader />
         <TimetableGrid />
+        <CourseList />
       </main>
     </div>
   );

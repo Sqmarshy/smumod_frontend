@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Header />
+          <Header />
         <div className="app-container">
           <Sidebar />
           <main className="main-content">
