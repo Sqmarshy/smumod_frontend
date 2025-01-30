@@ -1,8 +1,8 @@
 import SearchBar from '../components/Searchbar';
 import ModuleCard from '../components/ModuleCard';
-import '../styles/Courses.css';
+import '../styles/Modules.css';
 
-const Courses = () => {
+const Modules = () => {
   const sampleModules = [
     {
       moduleCode: "CS602",
@@ -63,9 +63,9 @@ const Courses = () => {
   ];
 
   return (
-    <div className="courses-page">
+    <div className="modules-page">
       <SearchBar />
-      <div className="courses-grid">
+      <div className="modules-grid">
         {sampleModules.map((module) => (
           <ModuleCard
             key={module.moduleCode}
@@ -77,4 +77,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default Modules;

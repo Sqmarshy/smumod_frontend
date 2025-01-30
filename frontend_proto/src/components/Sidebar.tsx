@@ -3,7 +3,7 @@ import '../styles/Sidebar.css';
 
 const menuItems = [
   { icon: "📅 ", label: "Timetable", path: "/timetable" },
-  { icon: "📚 ", label: "Courses", path: "/courses" },
+  { icon: "📚 ", label: "Modules", path: "/modules" },
   { icon: "🧭 ", label: "Venue", path: "/venue" },
   { icon: "⚙️ ", label: "Setting", path: "/setting" },
 ];
