@@ -1,4 +1,8 @@
+import ThemeToggle from "../components/ThemeToggle";
+
 function Setting(){
-    return ('Settings Here');
+    return (
+      <ThemeToggle />
+      );
   };
   export default Setting

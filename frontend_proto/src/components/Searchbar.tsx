@@ -1,13 +1,15 @@
-import '../styles/Searchbar.css'
+import '../styles/Searchbar.css';
 
 function SearchBar() {
-    return (
-      <input 
+  return (
+    <div className="search-bar">
+      <input
         type="text"
-        placeholder="Add course to timetable"
+        placeholder="Course code, names and descriptions"
         className="search-input"
       />
-    );
-  };
+    </div>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

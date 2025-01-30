@@ -1,0 +1,29 @@
+.module-card {
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.module-code {
+  color: #FF0000;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.module-name {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.module-info {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.module-description {
+  color: #444;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
