@@ -1,0 +1,27 @@
+/* src/styles/PrintButton.css */
+.print-btn {
+  position: absolute;
+  top: 65px;
+  right: 100px;
+  padding: 10px 20px;
+  background-color: white;
+  color: #0000b1;
+  border: 1px solid #0000b1;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.print-btn:hover {
+  background-color: #0000b1;
+  color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.print-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}

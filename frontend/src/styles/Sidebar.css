@@ -24,8 +24,8 @@
   }
   
   .sidebar-item.active {
-    color: rgb(239 68 68);
-    background-color: rgb(254 242 242);
+    color: #0000b1;
+    background-color: rgb(214, 220, 255);
   }
   
   .sidebar-icon {

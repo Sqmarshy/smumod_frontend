@@ -9,10 +9,11 @@
     background-color: white;
     border-bottom: 1px solid #e5e7eb;
     margin-left: 1rem;
+    z-index: 50;
   }
   
   .logo {
-    color: #ef4444;
+    color: #0000b1;
     font-weight: bold;
     font-size: 1.25rem;
   }
