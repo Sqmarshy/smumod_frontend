@@ -2,8 +2,8 @@ import { Link, useLocation } from 'react-router-dom';
 import '../styles/Sidebar.css';
 
 const menuItems = [
-  { icon: "📅 ", label: "Timetable", path: "/timetable" },
   { icon: "📚 ", label: "Modules", path: "/modules" },
+  { icon: "📅 ", label: "Timetable", path: "/timetable" },
   { icon: "🧭 ", label: "Venue", path: "/venue" },
   { icon: "⚙️ ", label: "Setting", path: "/setting" },
 ];
