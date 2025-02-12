@@ -28,8 +28,7 @@ const LoginPage: React.FC = () => {
   const handleGuestAccess = () => {
     // Set a guest flag in localStorage
     localStorage.setItem('isGuest', 'true');
-    // Redirect to main app
-    navigate('/module');
+    navigate('/modules');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -147,7 +146,6 @@ const LoginPage: React.FC = () => {
             </a>
           </div>
 
-          {/* Guest access button */}
           <div className="guest-access">
             <button
               type="button"
