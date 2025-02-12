@@ -27,7 +27,7 @@ function App() {
               <div className="app-container">
                 <Sidebar />
                 <main className="main-content">
-                  <Outlet />  {/* Add this line */}
+                  <Outlet />
                 </main>
               </div>
             </div>

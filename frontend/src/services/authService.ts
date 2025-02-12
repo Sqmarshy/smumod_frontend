@@ -20,10 +20,10 @@ return new Promise((resolve, reject) => {
     onFailure: (err) => {
         reject(err);
     },
-    newPasswordRequired: (userAttributes, requiredAttributes) => {
-        // Handle new password required scenario
-        reject(new Error('New password required'));
-    }
+    // newPasswordRequired: (userAttributes, requiredAttributes) => {
+    //     // Handle new password required scenario
+    //     reject(new Error('New password required'));
+    // }
     });
 });
 };
