@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authenticateUser } from '../services/authService';
+import { authService } from '../services/authService';
 import '../styles/LoginPage.css';
 
 interface LoginFormData {
-  email: string;
+  username: string;
   password: string;
 }
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<LoginFormData>({
-    email: '',
+    username: '',
     password: '',
   });
   const [error, setError] = useState<string>('');
@@ -26,7 +26,7 @@ const LoginPage: React.FC = () => {
   };
 
   const handleGuestAccess = () => {
-    // Set a guest flag in localStorage
+    // Set guest flag and redirect
     localStorage.setItem('isGuest', 'true');
     navigate('/modules');
   };
@@ -37,45 +37,18 @@ const LoginPage: React.FC = () => {
     setLoading(true);
 
     try {
-      const session = await authenticateUser(formData.email, formData.password);
-      
-      // Get the tokens
-      const accessToken = session.getAccessToken().getJwtToken();
-      const idToken = session.getIdToken().getJwtToken();
-      const refreshToken = session.getRefreshToken().getToken();
+      const response = await authService.login(formData.username, formData.password);
 
-      // Store tokens in localStorage or secure storage
-      localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('idToken', idToken);
-      localStorage.setItem('refreshToken', refreshToken);
-      localStorage.removeItem('isGuest'); // Remove guest flag if it exists
-
-      // Redirect to website
-      navigate('/modules');
-    } catch (err) {
-      let errorMessage = 'An error occurred';
-      
-      if (err instanceof Error) {
-        // Handle specific Cognito errors
-        switch (err.name) {
-          case 'NotAuthorizedException':
-            errorMessage = 'Incorrect username or password';
-            break;
-          case 'UserNotConfirmedException':
-            errorMessage = 'Please verify your email first';
-            break;
-          case 'UserNotFoundException':
-            errorMessage = 'Account not found';
-            break;
-          case 'InvalidParameterException':
-            errorMessage = 'Invalid email format';
-            break;
-          default:
-            errorMessage = err.message;
-        }
+      // If login successful, save tokens and redirect
+      if (response.status === 'success') {
+        localStorage.setItem('accessToken', response.data.accessToken);
+        localStorage.setItem('idToken', response.data.idToken);
+        localStorage.setItem('refreshToken', response.data.refreshToken);
+        localStorage.removeItem('isGuest');
+        navigate('/modules');
       }
-      
-      setError(errorMessage);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false);
     }
@@ -90,17 +63,17 @@ const LoginPage: React.FC = () => {
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="input-group">
             <div className="form-field">
-              <label htmlFor="email" className="sr-only">
-                Email address
+              <label htmlFor="username" className="sr-only">
+                Username
               </label>
               <input
-                id="email"
-                name="email"
-                type="email"
+                id="username"
+                name="username"
+                type="text"
                 required
                 className="input-field input-top"
-                placeholder="Email address"
-                value={formData.email}
+                placeholder="Username"
+                value={formData.username}
                 onChange={handleInputChange}
               />
             </div>

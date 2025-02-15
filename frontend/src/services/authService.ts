@@ -1,29 +1,45 @@
-import { CognitoUser, AuthenticationDetails, CognitoUserSession } from 'amazon-cognito-identity-js';
-import { userPool } from './congnitoConfig.ts';
-  
-export const authenticateUser = (email: string, password: string): Promise<CognitoUserSession> => {
-return new Promise((resolve, reject) => {
-    const user = new CognitoUser({
-    Username: email,
-    Pool: userPool
-    });
+const BASE_URL = 'http://127.0.0.1:8000';
 
-    const authDetails = new AuthenticationDetails({
-    Username: email,
-    Password: password
-    });
+export const authService = {
+  async login(username: string, password: string) {
+    try {
+      // Build URL with query parameters
+      const url = new URL(`${BASE_URL}/login`);
+      url.searchParams.append('username', username);
+      url.searchParams.append('password', password);
 
-    user.authenticateUser(authDetails, {
-    onSuccess: (session) => {
-        resolve(session);
-    },
-    onFailure: (err) => {
-        reject(err);
-    },
-    // newPasswordRequired: (userAttributes, requiredAttributes) => {
-    //     // Handle new password required scenario
-    //     reject(new Error('New password required'));
-    // }
-    });
-});
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Login failed');
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
+    }
+  },
+
+  logout() {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('idToken');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('isGuest');
+  },
+
+  isAuthenticated() {
+    return localStorage.getItem('accessToken') !== null || 
+           localStorage.getItem('isGuest') === 'true';
+  },
+
+  setGuestMode() {
+    localStorage.setItem('isGuest', 'true');
+  }
 };

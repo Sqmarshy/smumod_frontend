@@ -1,15 +1,12 @@
 import { FC } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { authService } from '../services/authService';
 
 const AuthLayout: FC = () => {
-  // Check if user is authenticated
-  const isAuthenticated = () => {
-    return localStorage.getItem('accessToken') !== null || localStorage.getItem('isGuest') === 'true';
-  };
   const location = useLocation();
 
-  // If authenticated, redirect to main app
-  if (isAuthenticated()) {
+  // If authenticated or guest, redirect to main app
+  if (authService.isAuthenticated()) {
     return <Navigate to="/modules" state={{ from: location }} replace />;
   }
 
