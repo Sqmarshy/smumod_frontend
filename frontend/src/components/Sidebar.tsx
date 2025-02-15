@@ -4,8 +4,8 @@ import '../styles/Sidebar.css';
 const menuItems = [
   { icon: "📚 ", label: "Modules", path: "/modules" },
   { icon: "📅 ", label: "Timetable", path: "/timetable" },
-  { icon: "🧭 ", label: "Venue", path: "/venue" },
   { icon: "⚙️ ", label: "Setting", path: "/setting" },
+  { icon: "🔑 ", label: "Admin", path: "/venue" },
 ];
 function Sidebar() {
   const location = useLocation();
